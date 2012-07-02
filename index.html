@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License. 
+-->
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Cordova WP7</title>
+    <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title"
+        charset="utf-8" />
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript">
+
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // once the device ready event fires, you can safely do your thing! -jm
+        function onDeviceReady() {
+            document.getElementById("welcomeMsg").innerHTML += "Cordova is ready! version=" + window.device.cordova;
+            console.log("onDeviceReady. You should see this message in Visual Studio's output window.");
+
+
+            var element = document.getElementById('deviceProperties');
+
+            element.innerHTML = 'Device Name: ' + device.name + '<br />' +
+                            'Device Cordova: ' + device.cordova + '<br />' +
+                            'Device Platform: ' + device.platform + '<br />' +
+                            'Device UUID: ' + device.uuid + '<br />' +
+                            'Device Version: ' + device.version + '<br />';
+
+            window.localStorage.SetItem("a", "asdgf1;");
+        };
+
+        var element = document.getElementById('deviceProperties');
+
+        element.innerHTML = 'Device Name: ' + device.name + '<br />' +
+                            'Device Cordova: ' + device.cordova + '<br />' +
+                            'Device Platform: ' + device.platform + '<br />' +
+                            'Device UUID: ' + device.uuid + '<br />' +
+                            'Device Version: ' + device.version + '<br />';
+
+
+
+        (function () {
+            var element = document.getElementById('deviceProperties');
+
+            element.innerHTML = 'Device Name: ' + device.name + '<br />' +
+                            'Device Cordova: ' + device.cordova + '<br />' +
+                            'Device Platform: ' + device.platform + '<br />' +
+                            'Device UUID: ' + device.uuid + '<br />' +
+                            'Device Version: ' + device.version + '<br />';
+
+        })();
+
+
+
+    </script>
+</head>
+<body>
+    <h1>
+        Hello Cordova</h1>
+    <div id="welcomeMsg">
+        Start.
+    </div>
+    <div id="deviceProperties">
+        Props.
+    </div>
+    <span>BrownBag App have been initialized!!! </span>
+    <br />
+    <button id="btn" click="animateStart();">
+        Click me</button>
+    <br />
+    <canvas id="canvas" width="300" height="300" style="border: solid 1px red; background-color: green;">Your device sucks.</canvas>
+    <script type="text/javascript">
+        var timer = null;
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var i = 0;
+        (function () {
+
+            document.getElementById('btn').addEventListener("click", animateStart, true);
+
+            ctx.fillStyle = "green";
+
+
+
+            ctx.fillStyle = "rgb(200,0,0)";
+            ctx.fillRect(10, 10, 55, 50);
+
+            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+            ctx.fillRect(30, 30, 55, 50);
+
+            ctx.fillStyle = "#FF0000";
+            ctx.beginPath();
+            ctx.arc(70, 18, 15, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fill();
+
+
+
+
+        })();
+
+        function animateStart() {
+            timer = setInterval(animate, 20);
+        }
+
+        function animate() {
+            var radius = 10;
+            var Y = 20 + i;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#8ED6FF";
+            ctx.beginPath();
+            ctx.arc(90, Y, radius, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fill();
+
+            i++;
+            if (i === 150) {
+                clearInterval(timer);
+            }
+        }
+
+    </script>
+</body>
+</html>
