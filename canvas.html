@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
@@ -28,13 +28,13 @@
         title="no title" charset="utf-8" />
     <script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
     <!--<script type="text/javascript" charset="utf-8" src="cordova.js"></script>-->
-    <script type="text/javascript" charset="utf-8" src="jquery-1.7.2.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="jquery.mobile-1.1.0.min.js"></script>
     <script type="text/javascript">
 
 
         document.addEventListener("deviceready", onDeviceReady, false);
 
+        // once the device ready event fires, you can safely do your thing! -jm
         function onDeviceReady() {
             document.getElementById("welcomeMsg").innerHTML += "Cordova is ready! version=" + window.device.cordova;
             console.log("onDeviceReady. You should see this message in Visual Studio's output window.");
@@ -48,38 +48,7 @@
                             'Device UUID: ' + device.uuid + '<br />' +
                             'Device Version: ' + device.version + '<br />';
 
-            //window.localStorage.SetItem("a", "asdgf1;");
-
-//            console.log("camera");
-//            navigator.camera.getPicture(
-//                    function success(fileUri) {
-//                        console.log("success " + fileUri);
-//                        $("#imgLocation").attr("href", fileUri);
-//                        $("#imgLocation").html(fileUri);
-//                    },
-//                    function error() {
-//                        console.log("error");
-//                    },
-//                    { quality: 50, destinationType: Camera.DestinationType.DATA_URL }
-//                );
-
-
-            $("#btnPic").click(function () {
-                console.log("camera");
-                navigator.camera.getPicture(
-                    function success(fileUri) {
-                        console.log("success " + fileUri);
-                        $("#imgLocation").attr("href", fileUri);
-                        $("#imgLocation").html(fileUri);
-                    },
-                    function error() {
-                        console.log("error");
-                    },
-                    { quality: 50, destinationType: Camera.DestinationType.DATA_URL }
-                );
-            });
-
-
+            window.localStorage.SetItem("a", "asdgf1;");
         };
 
         var element = document.getElementById('deviceProperties');
@@ -123,9 +92,6 @@
             </div>
             <span>BrownBag App have been initialized!!! </span>
             <br />
-            <button id="btnPic">
-                Take Picture</button>
-            <a href="" id="imgLocation"></a>
             <button id="btn">
                 Click me</button>
             <br />
